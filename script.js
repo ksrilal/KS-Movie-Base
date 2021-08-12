@@ -5,6 +5,7 @@ const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c
 const form = document.getElementById('form')
 const search = document.getElementById('search') 
 const main = document.getElementById('main')
+const headTitle = document.getElementById('head-title')
 
 //get movies
 getMovies(API_URL)
@@ -60,6 +61,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
 
     const searchTerm = search.value
+    window.scrollTo(0, 0);
 
     if(searchTerm && searchTerm !==''){
         getMovies(SEARCH_URL + searchTerm)
@@ -69,3 +71,5 @@ form.addEventListener('submit', (e) => {
         window.location.reload()
     }
 }) 
+
+headTitle.addEventListener('click', () => window.location.reload())
